@@ -20,7 +20,7 @@ public class Chambre {
     long numeroChambre;
     @Enumerated(EnumType.STRING)
     TypeChambre typeC;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     Bloc bloc;
     @OneToMany
     Set<Reservation> reservations;

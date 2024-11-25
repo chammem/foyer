@@ -19,6 +19,12 @@ public class FoyerRestController {
     Foyer ajouterFoyer(@RequestBody Foyer foyer){
         return foyerService.ajouterFoyer(foyer);
     }
+
+    @PostMapping(path = "/foyerbloc")
+    String ajouterFoyerEtBloc(@RequestBody Foyer foyer){
+        return foyerService.ajouterFoyerEtBloc(foyer);
+    }
+
     @PutMapping(path = "/modifier")
     Foyer modifierFoyer(@RequestBody Foyer foyer){
         return foyerService.modifierFoyer(foyer);

@@ -11,5 +11,6 @@ public interface IChambreRepo extends JpaRepository<Chambre, Long> {
     List<Chambre> findByNumeroChambre(long num);
 
     List<Chambre> findByBloc_Foyer_NomFoyer(String nomFoyer);
+   // Chambre findByBloc_Foyer_Universite_Nom(String nomUniversite);
 
 }

@@ -3,6 +3,7 @@ package tn.esprit.foyer.service;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.foyer.entity.Bloc;
 import tn.esprit.foyer.entity.Foyer;
 import tn.esprit.foyer.entity.Universite;
 import tn.esprit.foyer.repository.IFoyerRepo;
@@ -88,6 +89,14 @@ public class FoyerServiceImpl implements IFoyerService {
         universite.setFoyer(null);
 
         return universiteRepo.save(universite);
+    }
+
+    @Override
+    public String ajouterFoyerEtBloc(Foyer foyer) {
+        //parent.setfils(fils)
+        for(Bloc bloc:foyer.getBlocs())
+            bloc.setFoyer(foyer);
+        return foyerRepo.save(foyer).toString();
     }
 
 

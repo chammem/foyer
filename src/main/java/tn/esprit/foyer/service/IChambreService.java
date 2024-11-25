@@ -9,5 +9,6 @@ public interface IChambreService {
     public Bloc affecterChambresABloc(List<Long> numChambre, long
             idBloc) ;
     public long getChambresNonReservees(String nomFoyer);
+    Chambre ajouterChambreEtBloc(Chambre chambre);
 
 }

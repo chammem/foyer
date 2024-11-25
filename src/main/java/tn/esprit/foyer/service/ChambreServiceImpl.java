@@ -1,6 +1,7 @@
 package tn.esprit.foyer.service;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.foyer.entity.Bloc;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 @AllArgsConstructor
 public class ChambreServiceImpl implements IChambreService{
     @Override
@@ -44,6 +46,12 @@ public class ChambreServiceImpl implements IChambreService{
 
         return nb;
 
+    }
+
+    @Override
+    public Chambre ajouterChambreEtBloc(Chambre chambre) {
+        log.info("j'ai consomme le service d'ajout chambre et bloc");
+        return chambreRepository.save(chambre);
     }
     /*public long getChambresNonReservees(String nomFoyer) {
         List<Chambre> chambres = chambreRepository.findByBloc_Foyer_NomFoyer(nomFoyer);
