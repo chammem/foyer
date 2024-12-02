@@ -3,6 +3,7 @@ package tn.esprit.foyer.service;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.foyer.entity.Bloc;
 import tn.esprit.foyer.entity.Chambre;
@@ -62,5 +63,12 @@ public class ChambreServiceImpl implements IChambreService{
                         .anyMatch(reservation -> !reservation.isEstValide()))  // Si une réservation est invalide
                 .count();
     }*/
-
-    }
+//@Scheduled(fixedDelay = 5000)
+//@Scheduled(fixedRate = 5000)
+//@Scheduled(cron = "0 0 0 25-12 12,1 *")
+    //@Scheduled(cron="*/60 * 1 * * *")//toute les 60 secondes de chaque minute a 1h du mation
+    @Scheduled(cron="0/1 * * * * *")//chaque seconde de toute les minutes de chaque heure
+    void afficherMessage()
+    {
+        log.info("test scheduler");
+    }    }
